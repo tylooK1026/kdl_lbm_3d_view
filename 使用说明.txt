@@ -1,0 +1,68 @@
+LBM_post_process V1.0.0 快速使用说明
+====================================
+
+一、系统要求
+
+  Windows 10 或 Windows 11，64 位系统。
+  软件已包含 Python、NumPy、TIFF、Qt 和 VTK 运行组件，用户无需另外安装。
+
+二、安装与启动
+
+  1. 双击 LBM_post_process_Setup_win64.exe。
+  2. 按安装向导完成安装，默认会创建桌面快捷方式。
+  3. 双击桌面的 LBM_post_process 图标启动。
+
+  便携版用户：完整解压 LBM_post_process_win64_portable.zip，然后双击
+  LBM_post_process 文件夹中的 LBM_post_process.exe。不能只把 EXE 单独复制出来。
+
+三、处理单个 TIFF
+
+  1. 点击“打开 TIFF”。
+  2. 在右侧设置 X/Y/Z 裁剪范围并点击“应用裁剪”。
+  3. 在左侧设置各相的显示、颜色、透明度、平滑和光照。
+  4. 根据需要设置边框、3D 文字标注和相机视角。
+  5. 点击“截图”保存模型图片；在 Slice Volume Fraction 面板计算并保存 CSV。
+
+四、批量处理 TIFF 文件夹
+
+  1. 点击“打开 TIFF 文件夹”。
+  2. 选择一个 TIFF 作为参考并点击“载入选中的参考 TIFF”。
+  3. 在参考 TIFF 上完成裁剪、相样式、边框、3D 标注、相机和体积分数公式设置。
+  4. 点击“批量输出 PNG 和体积分数 CSV”。
+  5. 选择保存位置，等待进度条完成。
+
+  文件夹中的 TIFF 必须具有相同的三维矩阵大小。批量输出目录中包含：
+
+    visualizations                 每个 TIFF 的模型 PNG
+    slice_volume_fraction          每个 TIFF 的逐层体积分数 CSV
+    all_slice_volume_fraction_*.csv  全部成功文件的合并结果
+    batch_manifest.csv             成功、失败及错误原因
+    batch_settings.csv             本次裁剪和计算参数
+
+五、常见问题
+
+  1. Windows 提示“Windows 已保护你的电脑”
+     这是未购买商业代码签名证书时可能出现的 SmartScreen 提示。请确认安装包来源可信。
+
+  2. 软件无法启动或三维窗口为空
+     请更新显卡驱动，并确认使用 Windows 10/11 64 位系统。
+
+  3. 便携版提示缺少 DLL
+     请重新完整解压 ZIP，不要单独移动 LBM_post_process.exe。
+
+  4. TIFF 载入失败
+     TIFF 去除单例维度后必须是三维离散整数标签矩阵，而不是连续灰度图。
+
+六、卸载
+
+  打开 Windows“设置 → 应用 → 已安装的应用”，找到 LBM_post_process 并卸载。
+
+七、不使用 GitHub 生成安装包
+
+  如果拿到的是 Win64 项目包而不是现成安装程序：
+
+  1. 在 Windows 10/11 64 位电脑中完整解压项目包。
+  2. 双击项目根目录的“一键生成Win64软件.bat”。
+  3. 保持联网并等待 10–30 分钟，不要关闭黑色窗口。
+  4. 如果弹出 Windows 权限确认，请点击“是”。
+  5. 完成后打开 release 文件夹，即可找到安装版 EXE 和便携版 ZIP。

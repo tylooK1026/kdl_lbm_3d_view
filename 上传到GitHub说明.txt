@@ -1,0 +1,41 @@
+将本项目上传到 pemfc_kdl
+==========================
+
+一、解压本压缩包
+
+  解压后打开 pemfc_kdl-main 文件夹。不要把外层 ZIP 直接上传到 GitHub，
+  GitHub 不会自动解压 ZIP 中的软件项目。
+
+二、打开仓库网页
+
+  在浏览器打开你的 pemfc_kdl 仓库主页，确认当前分支为 main。
+
+三、上传文件
+
+  1. 点击 Add file。
+  2. 点击 Upload files。
+  3. 将解压后的 pemfc_kdl-main 文件夹内部的全部文件和文件夹拖入网页。
+     需要上传的是“内部内容”，不是外层 pemfc_kdl-main 文件夹本身。
+  4. 等待所有文件上传完成。
+  5. 在提交说明中填写：Add LBM_post_process Win64 project
+  6. 选择 Commit directly to the main branch。
+  7. 点击 Commit changes。
+
+四、启动 Win64 云端构建
+
+  1. 回到仓库首页，点击顶部 Actions。
+  2. 左侧选择 Build LBM_post_process Win64。
+  3. 点击 Run workflow。
+  4. 分支选择 main，再次点击绿色 Run workflow。
+  5. 等待构建完成并显示绿色对号。
+  6. 打开该次运行记录，在页面底部 Artifacts 中下载
+     LBM_post_process-win64。
+
+五、构建结果
+
+  下载并解压 Artifact 后应包含：
+
+    LBM_post_process_Setup_win64.exe
+    LBM_post_process_win64_portable.zip
+
+  如果 Actions 构建出现红色叉号，请打开失败步骤并截图错误信息。
